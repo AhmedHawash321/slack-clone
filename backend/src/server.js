@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 })
 
 
+console.log('INGEST_SIGNING_KEY exists:', !!process.env.INGEST_SIGNING_KEY);
+console.log('All env vars:', Object.keys(process.env));
+
 console.log('mongo uri:', process.env.MONGO_URI);
 process.env.CLERK_PUBLISHABLE_KEY
 console.log('clerck secret key', process.env.CLERK_SECRET_KEY ? 'loaded successfully' : 'not loaded');
