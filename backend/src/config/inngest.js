@@ -2,7 +2,8 @@ import { Inngest } from "inngest";
 import { connectDB } from "./db.js";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "slack-clone-backend" });
+export const inngest = new Inngest({ id: "slack-clone",  eventKey: process.env.INGEST_EVENT_KEY,
+  signingKey: process.env.INGEST_SIGNING_KEY,});
 
 
 const syncUser = inngest.createFunction(
