@@ -4,5 +4,10 @@ import { serve } from "inngest/express";
 const handler = serve({ client: inngest, functions });
 
 export default async function(req, res) {
-  return handler(req, res);
+  // Handle all HTTP methods
+  if (req.method === 'GET' || req.method === 'POST' || req.method === 'PUT' || req.method === 'DELETE') {
+    return handler(req, res);
+  } else {
+    res.status(405).json({ error: 'Method not allowed' });
+  }
 };
