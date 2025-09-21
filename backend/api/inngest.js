@@ -5,6 +5,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// Debug environment variables
+console.log('Environment check:');
+console.log('INGEST_EVENT_KEY:', process.env.INGEST_EVENT_KEY ? 'SET' : 'NOT SET');
+console.log('INGEST_SIGNING_KEY:', process.env.INGEST_SIGNING_KEY ? 'SET' : 'NOT SET');
+console.log('MONGO_URI:', process.env.MONGO_URI ? 'SET' : 'NOT SET');
+
 // Initialize Inngest
 const inngest = new Inngest({
   id: "slack-clone",
